@@ -1,111 +1,86 @@
 <!DOCTYPE html>
-<html>
-    <head>
-        <meta charset="UTF-8">
-        <link rel="stylesheet" href="convite.css">
-        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css" integrity="sha512-Evv84Mr4kqVGRNSgIGL/F/aIDqQb7xQ2vcrdIwxfjThSH8CSR7PBEakCr51Ck+w+/U6swU2Im1vVX0SVk9ABhg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
-        <title>Convite</title>
-    </head>
-    <body>
-        <main>
-            <div class="form">
-                <h1>Crie seu convite</h1>
-                <h4>
-                     <i class="fa-regular fa-calendar"></i>
-                        Sobre o evento
-                </h4>
-                <label>Título</label>
-                <input type="text" placeholder="Nome do evento" name="titulo" id="titulo">
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="convite.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css" integrity="sha512-Evv84Mr4kqVGRNSgIGL/F/aIDqQb7xQ2vcrdIwxfjThSH8CSR7PBEakCr51Ck+w+/U6swU2Im1vVX0SVk9ABhg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <title>Captura e Exibe Dados do Input</title>
+</head>
+<body>
+<form action="script.php" method="POST">
+    <h1>Crie seu convite</h1>
+    <h4>
+        <i class="fa-regular fa-calendar"></i>
+        Sobre o evento
+    </h4>
+    <label for="titulo">Título</label>
+    <input type="text" id="titulo" name="titulo" required>
 
-                <label>Início</label>
-                <input type="datetime-local" name="partyStart" id="partyStart" >
+    <label for="startParty">Início</label>
+    <input type="datetime-local" id="startParty" name="startParty">
 
-                <label>Fim</label>
-                <input type="datetime-local" name="partyEnd" id="partyEnd">
+    <label for="endParty">Fim</label>
+    <input type="datetime-local" id="endParty" name="endParty">
+    <br><br>
 
-                <div class="btn">
-                    <button type="button" id="presence">
-                        <i class="fa-solid fa-building-user"></i>
-                        Presencial
-                    </button>
-                    <button type="button" id="online">
-                        <i class="fa-solid fa-video"></i>
-                        Online
-                    </button>
-                </div>
-                <label>Local</label>
-                <input type="text" placeholder="Link ou endereço" name="local" id="local">
+    <select id="tipo" name="tipo">
+        <option>Presencial</option>
+        <option>Online</option>
+    </select>
 
-                <label for="areatext">Descrição</label>
-                <textarea placeholder="Escreva sobre os detalhes do evento" name="areatext" id="areatext"></textarea>
-            </div>
+    <label for="local">Local</label>
+    <input type="text" id="local" name="local">
 
-            <div class="colors">
-                <h4>
-                    <i class="fa-solid fa-brush"></i>
-                    Personalização
-                </h4>
-                <p>Cor principal</p>
-                <input type="color" id="cor1" name="cor1" value="#59B2FF">
-                <input type="color" id="cor2" name="cor2" value="#6A59FF">
-                <input type="color" id="cor3" name="cor3" value="#B259FF">
-                <input type="color" id="cor4" name="cor4" value="#FF59F9">
-                <input type="color" id="cor5" name="cor5" value="#FF598B">
-                <input type="color" id="cor6" name="cor6" value="#FF5959">
-                <input type="color" id="cor7" name="cor7" value="#FF8B59">
-                <input type="color" id="cor8" name="cor8" value="#FFCD59">
-                <input type="color" id="cor9" name="cor9" value="#E1FF59">
-                <input type="color" id="cor10" name="cor10" value="#59FF91">
-                <input type="color" id="cor11" name="cor11" value="#59FFF9">
-            </div>
+    <textarea id="descricao" name="descricao" placeholder="Descrição"></textarea>
 
-            <div class="theme">
-                <img src="" id="image1">
-                <img src="" id="image2">
-                <img src="" id="image3">
-                <img src="" id="image4">
-                <img src="" id="image5">
-                <img src="" id="image6">
-                <img src="" id="image7">
-                <img src="" id="image8">
-                <img src="" id="image9">
-                <img src="" id="image10">
-                <img src="" id="image11">
-                <img src="" id="image12">
-                <label for="blackWhite">Estilo</label>
-                <button id="blackWhite">Escuro</button>
-                <label for="arq">Foto da capa</label>
-                <input type="file" id="arq">
-            </div>
+    <h4>
+        <i class="fa-solid fa-brush"></i>
+        Personalização
+    </h4>
+    <div class="color">
+        <label for="cor">Cor principal</label>
+        <input type="color" id="cor" name="cor">
 
-            <div class="contact">
-                <h4>
-                    <i class="fa-solid fa-address-card"></i>
-                    Dados para contato
-                </h4>
-                <label for="nome">Nome</label>
-                <input type="text" placeholder="Nome completo" id="nome" required>
-                <label for="email">E-mail</label>
-                <input type="email" id="email" placeholder="exemplo@email.com" required>
-                <label for="phonenumber">Telefone</label>
-                <input type="tel" placeholder="(00) 00000-0000" id="phonenumber" required>
-            </div>
+    </div>
 
-            <hr>
+    <p>Tema do evento</p>
+    <select id="tema" name="tema">
+        <option>Aniverário</option>
+        <option> Infantil</option>
+        <option>Formatura</option>
+        <option>Casamento</option>
+        <option>Chá de bebê</option>
+        <option>Chá de panela</option>
+        <option>Carnaval</option>
+        <option>Páscoa</option>
+        <option>São João</option>
+        <option>Hallowen</option>
+        <option>Natal</option>
+        <option>Outro</option>
+    </select>
+    <div id="estilo">
+        <input type="checkbox" id="claro">Claro
+        <input type="checkbox" id="escuro">Escuro
+    </div>
 
-            <div class="terms">
-                <input type="checkbox" required> Li e concordo com os <a>Termos e Condições</a> e com a <a>Política de Privacidade</a><br>
-                <input type="checkbox"> Aceito receber atualizações e promoções por e-mail<br>
-                <input type="checkbox"> Aceito receber atualizações e promoções por SMS
-                <form action="script.php" method="post" enctype="multipart/form-data">
-                    <button class="generate" id="generate">
-                        <i class="fa-solid fa-ticket"></i>
-                        Gerar convite
-                    </button>
-                </form>
-            </div>
-        </main>
-    </body>
+    <label>Foto da capa<br>
+        <input type="file" id="fotoCapa" name="fotoCapa">
+    </label>
+    <h4>Dados para contato</h4>
+    <label for="nome">Nome</label>
+    <input type="text" id="nome" name="nome">
+    <label for="email">E-mail</label>
+    <input type="email" id="email" name="email" placeholder="Digite o seu email">
+    <label for="phone">Telefone</label>
+    <input type="tel" id="phone" name="phone" placeholder="(00) 00000-0000">
+
+    <hr>
+    <input type="checkbox" id="termos" name="termos"> Li e condordo com os <a>Termos e Condições</a> e com a <a>Política de Privacidade</a><br>
+    <input type="checkbox" id="atualizacao_email" name="atualizacao_email"> Aceito receber atualizações e promoções por e-mail<br>
+    <input type="checkbox" id="atualizacao_sms" name="atualizacao_sms"> Aceito receber atualizções e promoções por SMS
+
+    <button type="submit">Enviar</button>
+</form>
+</body>
 </html>
-<?php
-
